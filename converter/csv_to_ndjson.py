@@ -34,12 +34,13 @@ with open(input_csv_file, "r", encoding="latin-1") as csv_file, open(output_ndjs
             "identifier": [
                 {
                     "use": "official",
-                    "system": "http://example.org/cpf",
+                    "system": "https://www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/cadastros/cpf",
                     "value": row[1].replace(".", "").replace("-", "")  # Assuming CPF is in the second column
                 }
             ],
             "name": [
                 {
+                    "use": "official",
                     "family": " ".join(family),
                     "given": given
                 }
@@ -54,7 +55,7 @@ with open(input_csv_file, "r", encoding="latin-1") as csv_file, open(output_ndjs
             "birthDate": "-".join(reversed(row[3].split("/"))),  # Assuming birth date is in the fourth column
             "address": [
                 {
-                    "country": row[5]  # Assuming country is in the sixth column
+                    "country": row[5][:3].upper()  # Convert full country name to ISO 3166-3 code and assume birth country as Country
                 }
             ],
             "note": [
