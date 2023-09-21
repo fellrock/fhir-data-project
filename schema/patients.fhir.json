@@ -1,0 +1,21 @@
+{
+    "resourceType": "Patient",
+    "name": [{
+        "use": "official",
+        "given": ["João"],
+        "family": "da Silva"
+    }],
+    "gender": "male",
+    "birthDate": "1980-05-10",
+    "telecom": [{
+        "system": "phone",
+        "value": "(11) 1234-5678",
+        "use": "mobile"
+    }],
+    
+}
+
+{"Nome": "João da Silva", "CPF": "123.456.789-00", 
+"Gênero": "Masculino", "Data de Nascimento": "10/05/1980", 
+"Telefone": "(11) 1234-5678", "País de Nascimento": "Brasil", 
+"Observação": ""}

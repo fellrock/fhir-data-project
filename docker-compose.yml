@@ -1,0 +1,36 @@
+version: "3.7"
+
+services:
+  # Fhirbase Service Configuration
+  fhirbase:
+    # Build context and Dockerfile location for Fhirbase
+    build:
+      context: .
+      dockerfile: ./fhirbase/Dockerfile
+    # Ports mapping: HostPort:ContainerPort
+    ports:
+      - "5432:5432"  # PostgreSQL port
+      - "3000:3000"  # Fhirbase web demo port
+    # Named volume for persisting database data
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - shared-data:/app/shared
+    # Environment variables for PostgreSQL
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+
+  # Converter Service Configuration
+  converter:
+    # Build context and Dockerfile location for Converter
+    build:
+      context: .
+      dockerfile: ./converter/Dockerfile
+    # Mount the data directory to make converted files accessible outside the container
+    volumes:
+      - ./data:/app/data
+      - shared-data:/app/shared 
+
+# Named volume definition
+volumes:
+  pgdata:
+  shared-data:
