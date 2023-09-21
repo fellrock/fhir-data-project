@@ -1,4 +1,4 @@
-![Logo KravelaCloud](imgs/round_logo_v00.png)
+![Logo KravelaCloud](imgs/tinny_round_logo_v00.png)
 ***
 # FHIR Converter and Database Setup
 
